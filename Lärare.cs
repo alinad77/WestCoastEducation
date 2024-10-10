@@ -2,7 +2,7 @@ namespace WestCoastEducation;
 
 public class Lärare : Studerande
 {
-    public string Kunskapsområde { get; set; }
+    public required string Kunskapsområde { get; set; }
     public List<Kurs> AnsvarigaKurser { get; set; }
 
     public Lärare()
@@ -15,14 +15,20 @@ public class Lärare : Studerande
         return base.ToString() + $" Kunskapsområde: {Kunskapsområde}";
     }
 
-    public void AddKurs(Kurs kurs)
+    public new void AddKurs(Kurs kurs)
     {
-        AnsvarigaKurser.Add(kurs);
+        if (AnsvarigaKurser.Contains(kurs))
+        {
+            AnsvarigaKurser.Add(kurs);
+        }
     }
 
-    public void RemoveKurs(Kurs kurs)
+    public new void RemoveKurs(Kurs kurs)
     {
-        AnsvarigaKurser.Remove(kurs);
+        if (AnsvarigaKurser.Contains(kurs))
+        {
+            AnsvarigaKurser.Remove(kurs);
+        }
     }
 
     public List<Kurs> GetAnsvarigaKurser()

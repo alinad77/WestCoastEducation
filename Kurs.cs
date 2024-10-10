@@ -3,7 +3,7 @@ namespace WestCoastEducation;
 public class Kurs
 {
     public int Kursnummer { get; set; }
-    public string Title { get; set; }
+    public string Title { get; set; } = string.Empty; // Säkerställer att Title aldrig är null
     public int Längd { get; set; } // antal veckor eller dagar
     public DateTime Startdatum { get; set; }
     public DateTime Slutdatum { get; set; }
@@ -17,12 +17,15 @@ public class Kurs
 
     public override string ToString()
     {
-        return $"Kursnummer;{Kursnummer}, Title: {Title}, Längd: {Längd} veckor, Startdatum: {Startdatum}, Slutdatum: {Slutdatum}, Klassrumsbunden: {Klassrumsbunden} ";
+        return $"Kursnummer: {Kursnummer}, Title: {Title}, Längd: {Längd} veckor, Startdatum: {Startdatum.ToShortDateString()}, Slutdatum: {Slutdatum.ToShortDateString()}, Klassrumsbunden: {Klassrumsbunden}";
     }
 
     public void AddStuderande(Studerande studerande)
     {
-        StuderandeLista.Add(studerande);
+        if (!StuderandeLista.Contains(studerande))
+        {
+            StuderandeLista.Add(studerande);
+        }
     }
 
     public void RemoveStuderande(Studerande studerande)
@@ -30,7 +33,7 @@ public class Kurs
         StuderandeLista.Remove(studerande);
     }
 
-    public List<Studerande> GetStuderandes()
+    public List<Studerande> GetStuderandeLista()
     {
         return StuderandeLista;
     }

@@ -12,3 +12,4 @@ C:\Users\alima\WestCoastEducation\obj\Debug\net8.0\refint\WestCoastEducation.dll
 C:\Users\alima\WestCoastEducation\obj\Debug\net8.0\WestCoastEducation.pdb
 C:\Users\alima\WestCoastEducation\obj\Debug\net8.0\WestCoastEducation.genruntimeconfig.cache
 C:\Users\alima\WestCoastEducation\obj\Debug\net8.0\ref\WestCoastEducation.dll
+C:\Users\alima\WestCoastEducation\obj\Debug\net8.0\WestCoastEducation.sourcelink.json

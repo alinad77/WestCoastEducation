@@ -2,13 +2,13 @@ namespace WestCoastEducation;
 
 public class Studerande
 {
-    public string Förnamn { get; set; }
-    public string Efternamn { get; set; }
-    public string Telefon { get; set; }
-    public string Adress { get; set; }
-    public string Postnummer { get; set; }
-    public string Ort { get; set; }
-    public List<Kurs> KursLista { get; set; }
+    public string? Förnamn { get; set; }
+    public string? Efternamn { get; set; }
+    public string? Telefon { get; set; }
+    public string? Adress { get; set; }
+    public string? Postnummer { get; set; }
+    public string? Ort { get; set; }
+    public List<Kurs> KursLista { get; private set; }
 
     public Studerande()
     {
@@ -22,14 +22,20 @@ public class Studerande
 
     public void AddKurs(Kurs kurs)
     {
-        KursLista.Add(kurs);
-        kurs.AddStuderande(this);
+        if (!KursLista.Contains(kurs))
+        {
+            KursLista.Add(kurs);
+            kurs.AddStuderande(this);
+        }
     }
 
     public void RemoveKurs(Kurs kurs)
     {
-        KursLista.Remove(kurs);
-        kurs.RemoveStuderande(this);
+        if (!KursLista.Contains(kurs))
+        {
+            KursLista.Remove(kurs);
+            kurs.RemoveStuderande(this);
+        }
     }
 
     public List<Kurs> GetKurser()

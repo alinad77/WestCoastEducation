@@ -20,12 +20,23 @@ class Program
         // Skapa en ny studerande
         Studerande studerande = new Studerande
         {
-            Förnamn = "Nome",
+            Förnamn = "Radwan",
             Efternamn = "Abdigadir",
             Telefon = "0701234567",
             Adress = "Kävlinge Bygata 1",
             Postnummer = "12345",
             Ort = "Malmö",
+        };
+
+        Lärare lärare = new Lärare
+        {
+            Förnamn = "Diego",
+            Efternamn = "Jota",
+            Telefon = "0721234567",
+            Adress = "Ramels Väg 11",
+            Postnummer = "21374",
+            Ort = "Malmö",
+            Kunskapsområde = "Programmering",
         };
 
         // Lägg till studerande till kurs
